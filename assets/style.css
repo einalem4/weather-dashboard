@@ -1,0 +1,9 @@
+#five-day-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center/space-between;
+}
+
+.card {
+    margin: 10px;
+}
