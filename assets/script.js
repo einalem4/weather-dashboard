@@ -3,6 +3,7 @@ var searchButton = document.querySelector("#search-button")
 var mainWeather = document.querySelector("#weather")
 var mainTempEl = document.querySelector("#temperature")
 
+
 // current weather
 function currentWeather(city) {
 
@@ -13,7 +14,8 @@ function currentWeather(city) {
             return response.json();
         })
         .then(function (weather) {
-            mainTempEl.innerHTML= "Temperature: " + Math.round(weather.main.temp) +"&deg F";
+            mainTempEl.innerHTML = "Temperature: " + Math.round(weather.main.temp) + "&deg F";
+            document.getElementById("humidity").innerHTML = "Humidity: " + weather.main.humidity + "%";
             console.log(weather.main.temp);
         });
 }
