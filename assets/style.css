@@ -2,10 +2,6 @@ body {
     font-family: "Open Sans", sans-serif;
   }
 
-  #weather-card {
-     background-color:  #fdfcfa ;
-  }
-  
   #current-info
   #city-name,
   #current-icon {
@@ -25,6 +21,10 @@ body {
     justify-content: center/space-between;
 }
 
+#previous-search {
+    width: 22rem;
+    margin: 10px;
+  }
 
 .card {
     margin: 10px;

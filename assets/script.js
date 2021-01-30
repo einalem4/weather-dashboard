@@ -2,6 +2,17 @@ var searchButton = document.querySelector("#search-button")
 var mainTempEl = document.querySelector("#temperature")
 var cityName = document.querySelector("#city-name")
 
+
+function searchHistory() {
+    var cityInput = document.querySelector("#city-input").value
+    document.getElementById("previous-search").innerHTML = cityInput
+    console.log(searchHistory)
+    console.log(cityInput)
+}
+
+localStorage.getItem(JSON.stringify(searchHistory));
+
+
 // current weather
 function currentWeather(cityInput) {
 
@@ -65,7 +76,6 @@ function forecast(cityInput) {
             var iconOne = document.getElementById("icon-one")
             iconOne.setAttribute('src', 'http://openweathermap.org/img/wn/' + weather.list[0].weather[0].icon + '@2x.png');
 
-
             document.getElementById("date-two").innerHTML = "<h2>" + moment().add(2, 'day').format('l') + "</h2>"
             document.getElementById("temp-two").innerHTML = "Temperature: " + Math.round(weather.list[1].main.temp) + " &degF";
             document.getElementById("humidity-two").innerHTML = "Humidity: " + weather.list[1].main.humidity + "%";
@@ -98,7 +108,9 @@ searchButton.addEventListener("click", function (e) {
     var cityInput = document.querySelector("#city-input").value
     currentWeather(cityInput);
     forecast(cityInput);
+    var previousSearch = cityInput;
+    localStorage.setItem("searchButton", JSON.stringify(previousSearch))
+    searchHistory();
+    console.log(localStorage)
+    console.log(previousSearch)
 });
-
-
-
