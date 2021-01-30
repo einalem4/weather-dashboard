@@ -1,15 +1,12 @@
-var cityInput = document.querySelector("#city-input").value
 var searchButton = document.querySelector("#search-button")
 var mainTempEl = document.querySelector("#temperature")
 var cityName = document.querySelector("#city-name")
-var currentDate = document.querySelector("current-date")
-
 
 // current weather
-function currentWeather(city) {
+function currentWeather(cityInput) {
 
     fetch(
-        'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=77405a385bebafa9f315f727dbdd5471'
+        'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput + '&units=imperial&appid=77405a385bebafa9f315f727dbdd5471'
     )
         .then(function (response) {
             return response.json();
@@ -25,8 +22,6 @@ function currentWeather(city) {
             uvIndex(weather);
         });
 }
-
-currentWeather("Coral Springs");
 
 // UV index
 function uvIndex(weather) {
@@ -54,9 +49,9 @@ function uvIndex(weather) {
 }
 
 // five day forecast
-function forecast(city) {
+function forecast(cityInput) {
     fetch(
-        'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=77405a385bebafa9f315f727dbdd5471'
+        'https://api.openweathermap.org/data/2.5/forecast?q=' + cityInput + '&units=imperial&appid=77405a385bebafa9f315f727dbdd5471'
     )
 
         .then(function (response) {
@@ -96,14 +91,14 @@ function forecast(city) {
             iconFive.setAttribute('src', 'http://openweathermap.org/img/wn/' + weather.list[4].weather[0].icon + '@2x.png');
 
         });
-
-}
-forecast("Coral Springs");
-
-function search() {
-    var citySearch = cityInput.value
-    console.log(citySearch);
 }
 
-searchButton.addEventListener("submit", search);
-console.log(searchButton);
+searchButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    var cityInput = document.querySelector("#city-input").value
+    currentWeather(cityInput);
+    forecast(cityInput);
+});
+
+
+

@@ -1,6 +1,10 @@
 body {
     font-family: "Open Sans", sans-serif;
   }
+
+  #weather-card {
+     background-color:  #fdfcfa ;
+  }
   
   #current-info
   #city-name,
