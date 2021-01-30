@@ -2,6 +2,18 @@ body {
     font-family: "Open Sans", sans-serif;
   }
   
+  #current-info
+  #city-name,
+  #current-icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: center/space-around/space-between;
+  }
+
+  #city-name {
+      font-weight: bold;
+      margin: 10px
+  }
 
 #five-day-cards {
     display: flex;
