@@ -47,9 +47,9 @@
             <div class="col-md-9">
                 <div id="weather-card" class='card'>
                     <div class="card-body">
-                        <div id="city-date-icon">
-                            <span id='city-name'></span>
-                            <span id='current-icon'></span>
+                        <div id="city-date">
+                            <div id='city-name'></div>
+                            <img src="" id="current-icon" /> 
                         </div>
                         <p class="card-text" id="temperature"></p>
                         <p class="card-text" id="humidity"></p>
@@ -61,44 +61,45 @@
                 <!-- 5 day forecast section -->
                 <div class="row">
                     <div id="five-day-forecast" class="col-md-9">
-                        <h4>5-Day Forecast:</h4>
+                        <p class="five-title">5-Day Forecast:</p>
                         <div id="five-day-cards">
-                            <div class="card">
+                            <div class="card bg-primary text-white">
                                 <div id="forecast-one" class="card-body">
                                     <span class="card-title" id='date-one'></span>
-                                    <span id='icon-one'></span>
+                                    <img src="" id="icon-one" />
+                                    
                                     <p class="card-text" id="temp-one"></p>
                                     <p class="card-text" id="humidity-one"></p>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card bg-primary text-white">
                                 <div id="forecast-two" class="card-body">
                                     <span class="card-title" id='date-two'></span>
-                                    <span id='icon-two'></span>
+                                    <img src="" id="icon-two" />
                                     <p class="card-text" id="temp-two"></p>
                                     <p class="card-text" id="humidity-two"></p>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card bg-primary text-white">
                                 <div id="forecast-three" class="card-body">
                                     <span class="card-title" id='date-three'></span>
-                                    <span id='icon-three'></span>
+                                    <img src="" id="icon-three" />
                                     <p class="card-text" id="temp-three"></p>
                                     <p class="card-text" id="humidity-three"></p>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card bg-primary text-white">
                                 <div id="forecast-four" class="card-body">
                                     <span class="card-title" id='date-four'></span>
-                                    <span id='icon-four'></span>
+                                    <img src="" id="icon-four" />
                                     <p class="card-text" id="temp-four"></p>
                                     <p class="card-text" id="humidity-four"></p>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card bg-primary text-white">
                                 <div id="forecast-five" class="card-body">
                                     <span class="card-title" id='date-five'></span>
-                                    <span id='icon-five'></span>
+                                    <img src="" id="icon-five" />
                                     <p class="card-text" id="temp-five"></p>
                                     <p class="card-text" id="humidity-five"></p>
                                 </div>
@@ -115,6 +116,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 

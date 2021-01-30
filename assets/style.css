@@ -1,9 +1,21 @@
+body {
+    font-family: "Open Sans", sans-serif;
+  }
+  
+
 #five-day-cards {
     display: flex;
     flex-direction: row;
     justify-content: center/space-between;
 }
 
+
 .card {
+    margin: 10px;
+}
+
+.five-title {
+    font-size: 30px;
+    font-weight: bold;
     margin: 10px;
 }
