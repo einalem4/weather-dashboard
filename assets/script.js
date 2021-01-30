@@ -19,12 +19,12 @@ function currentWeather(city) {
             document.getElementById("city-name").innerHTML = "<h3>" + weather.name + "</h3>"
             var currentIcon = document.getElementById("current-icon")
             currentIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png');
-           
+
             uvIndex(weather);
         });
 }
 
-currentWeather("San Diego");
+currentWeather("Tucson");
 
 // UV index
 function uvIndex(weather) {
@@ -38,8 +38,18 @@ function uvIndex(weather) {
         })
         .then(function (response) {
             document.getElementById("uv").innerHTML = "UV Index: " + response.value
-            console.log(response);
-            console.log(weather);
+
+            if (response.value < 3) {
+                document.getElementById("uv").innerHTML = "UV Index: <span class='p-2 mb-2 bg-success text-white'>" + response.value + "</span>"
+            }
+
+            else if (response.value > 7) {
+                document.getElementById("uv").innerHTML = "UV Index: <span class=' p-2 mb-2 bg-danger text-white'>" + response.value + "</span>"
+            }
+
+            else {
+                document.getElementById("uv").innerHTML = "UV Index: <span class=' p-2 mb-2  bg-warning text-dark'>" + response.value + "</span>"
+            }
         });
 }
 
@@ -83,6 +93,6 @@ function forecast(city) {
         });
 
 }
-forecast("San Diego");
+forecast("Tucson");
 
 
