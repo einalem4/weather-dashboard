@@ -97,7 +97,7 @@ function forecast(cityInput) {
 }
 
 
-
+//when the search button is clicked the weather is populated
 searchButton.addEventListener("click", function (e) {
     e.preventDefault();
     var cityInput = document.querySelector("#city-input").value
@@ -106,7 +106,7 @@ searchButton.addEventListener("click", function (e) {
     addToSearchHistory(cityInput);
 });
 
-
+//adds items to search history list and in localstorage
 function addToSearchHistory(cityInput) {
     cityList.push(cityInput)
     var listItem = document.createElement('div')
@@ -117,12 +117,14 @@ function addToSearchHistory(cityInput) {
 
 }
 
+//calls the search history on the screen
 function getSearchHistory() {
     for (var i = 0; i < cityList.length; i++) {
         var listItem = document.createElement('div')
         listItem.classList.add("list-group-item")
         listItem.innerHTML = cityList[i]
         previousSearch.appendChild(listItem)
+        // click items on the history list to see the weather again
         listItem.addEventListener("click", function (e) {
             e.preventDefault();
             var city = e.target.innerText
@@ -132,7 +134,7 @@ function getSearchHistory() {
     }
 }
 
-
+//gets the items from localstorage
 var storedItem = localStorage.getItem("searchButton");
 if (storedItem) {
     cityList = JSON.parse(storedItem)
