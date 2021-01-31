@@ -2,7 +2,9 @@ var searchButton = document.querySelector("#search-button")
 var mainTempEl = document.querySelector("#temperature")
 var cityName = document.querySelector("#city-name")
 var previousSearch = document.querySelector("#previous-search")
+var cityInput = document.querySelector("#city-input").value
 var cityList = [];
+
 
 // current weather
 function currentWeather(cityInput) {
@@ -94,6 +96,8 @@ function forecast(cityInput) {
         });
 }
 
+
+
 searchButton.addEventListener("click", function (e) {
     e.preventDefault();
     var cityInput = document.querySelector("#city-input").value
@@ -102,6 +106,7 @@ searchButton.addEventListener("click", function (e) {
     addToSearchHistory(cityInput);
 });
 
+
 function addToSearchHistory(cityInput) {
     cityList.push(cityInput)
     var listItem = document.createElement('div')
@@ -109,6 +114,7 @@ function addToSearchHistory(cityInput) {
     listItem.innerHTML = cityInput
     previousSearch.appendChild(listItem)
     localStorage.setItem("searchButton", JSON.stringify(cityList))
+
 }
 
 function getSearchHistory() {
@@ -117,13 +123,18 @@ function getSearchHistory() {
         listItem.classList.add("list-group-item")
         listItem.innerHTML = cityList[i]
         previousSearch.appendChild(listItem)
-        console.log(cityList[i])
+        listItem.addEventListener("click", function (e) {
+            e.preventDefault();
+            var city = e.target.innerText
+            currentWeather(city);
+            forecast(city)
+        });
     }
-
 }
+
 
 var storedItem = localStorage.getItem("searchButton");
 if (storedItem) {
     cityList = JSON.parse(storedItem)
-  }
+}
 getSearchHistory();
